@@ -5,6 +5,11 @@ namespace App\Providers;
 use App\Actions\Jetstream\DeleteUser;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Session;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -24,6 +29,23 @@ class JetstreamServiceProvider extends ServiceProvider
         $this->configurePermissions();
 
         Jetstream::deleteUsersUsing(DeleteUser::class);
+
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = User::where('email', $request->auth)
+                ->orWhere('username', $request->auth)
+                ->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                if ($user->is_active == 1) {
+                    return $user;
+                } else {
+                    Session::flash('error', 'Akun dinonaktifkan. Akses tidak diizinkan.');
+                }
+            }
+
+            // Jika autentikasi gagal, kembalikan null
+            return null;
+        });
     }
 
     /**

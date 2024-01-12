@@ -42,7 +42,7 @@
                 </a>
             </li>
 
-            <li class="{{ request()->is('tabungan') ? 'active' : '' }}">
+            <li class="{{ request()->is('tabungan', 'tabungan/search') ? 'active' : '' }}">
                 <a href="{{ route('tabungan.index') }}">
                     <i class="fa fa-credit-card"></i>
                     Update QQ Tabungan

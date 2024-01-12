@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::controller(TabunganController::class)->group(function () {
         Route::get('/tabungan', 'index')->name('tabungan.index');
+        Route::post('/tabungan/search', 'search')->name('tabungan.search');
+        Route::put('/tabungan/update', 'update')->name('tabungan.update');
     });
 
     Route::controller(NasabahController::class)->group(function () {

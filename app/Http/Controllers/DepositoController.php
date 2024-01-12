@@ -51,7 +51,6 @@ class DepositoController extends Controller
     public function update(Request $request)
     {
         $noacc  = $request->input('noacc');
-        $user   = Auth::user()->name;
 
         $data = [
             'log'          => 'Update QQ Deposito',

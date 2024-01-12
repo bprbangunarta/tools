@@ -50,7 +50,7 @@
                             <h3 class="box-title">HISTORY UPDATE</h3>
 
                             <div class="box-tools">
-                                <form action="#" method="GET">
+                                <form action="{{ route('deposito.index') }}" method="GET">
                                     <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                                         <input type="text" class="form-control text-uppercase pull-right"
                                             style="width: 150px;" name="keyword" id="keyword"
@@ -87,6 +87,9 @@
                                             <td class="text-center">{{ $item->created_at }}</td>
                                         </tr>
                                     @empty
+                                        <tr>
+                                            <td class="text-center" colspan="10">Tidak Ada Data</td>
+                                        </tr>
                                     @endforelse
                                 </tbody>
                             </table>

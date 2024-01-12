@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class TabunganB extends Model
 {
     use HasFactory;
+    protected $connection = 'sqlsrv';
+    protected $table = 'm_tabunganb';
 }

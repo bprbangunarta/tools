@@ -35,7 +35,7 @@
                 </a>
             </li>
 
-            <li class="{{ request()->is('deposito') ? 'active' : '' }}">
+            <li class="{{ request()->is('deposito', 'deposito/search') ? 'active' : '' }}">
                 <a href="{{ route('deposito.index') }}">
                     <i class="fa fa-money"></i>
                     Update QQ Deposito

@@ -27,6 +27,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::controller(DepositoController::class)->group(function () {
         Route::get('/deposito', 'index')->name('deposito.index');
+        Route::post('/deposito/search', 'search')->name('deposito.search');
+        Route::put('/deposito/update', 'update')->name('deposito.update');
     });
 
     Route::controller(TabunganController::class)->group(function () {

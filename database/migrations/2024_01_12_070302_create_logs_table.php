@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->string('log');
+            $table->string('nocif');
             $table->string('noacc');
             $table->string('nama_nasabah');
             $table->string('update_user');

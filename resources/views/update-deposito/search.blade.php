@@ -13,31 +13,32 @@
                             <h3 class="box-title">NASABAH DEPOSITO</h3>
                         </div>
 
-                        <form role="form" action="{{ route('deposito.search') }}" method="POST">
+                        <form role="form" action="{{ route('deposito.update') }}" method="POST">
+                            @method('PUT')
                             @csrf
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>No. Tabungan</label>
-                                    <input type="number" class="form-control" name="noacc" minlength="16" required=""
-                                        placeholder="303XXXXXX">
+                                    <input type="number" class="form-control" name="noacc" minlength="16"
+                                        value="{{ $deposito->noacc }}" placeholder="303XXXXXX" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nomor CIF</label>
-                                    <input type="text" class="form-control" readonly="">
+                                    <input type="text" class="form-control" name="nocif" value="{{ $deposito->nocif }}"
+                                        readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nama Debitur</label>
-                                    <input type="text" class="form-control" readonly="">
+                                    <input type="text" class="form-control" name="nama"
+                                        value="{{ $deposito->fnama }}">
                                 </div>
-
                             </div>
 
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-success" style="width:100%;">
-                                    <i class="fa fa-filter"></i>&nbsp;FILTER
-                                </button>
+                                <a href="{{ route('deposito.index') }}" class="btn btn-danger">RESET</a>
+                                <button type="submit" class="btn btn-success pull-right">UPDATE</button>
                             </div>
                         </form>
                     </div>

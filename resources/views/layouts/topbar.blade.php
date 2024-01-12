@@ -29,13 +29,12 @@
                         </li>
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-primary btn-flat">Ubah
-                                    Password</a>
+                                <a href="#" class="btn btn-success btn-flat">Password</a>
                             </div>
                             <div class="pull-right">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a href="" class="btn btn-danger btn-flat"
+                                    <a href="" class="btn btn-default btn-flat"
                                         onclick="event.preventDefault(); this.closest('form').submit();">Keluar</a>
                                 </form>
                             </div>

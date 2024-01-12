@@ -13,30 +13,31 @@
                             <h3 class="box-title">DATA NASABAH</h3>
                         </div>
 
-                        <form role="form" action="{{ route('nasabah.search') }}" method="POST">
+                        <form role="form" action="{{ route('nasabah.update') }}" method="POST">
+                            @method('PUT')
                             @csrf
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Nomor CIF</label>
-                                    <input type="number" class="form-control" name="nocif" required>
+                                    <input type="number" class="form-control" name="nocif" minlength="16"
+                                        value="{{ $nasabah->nocif }}" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nama Debitur</label>
-                                    <input type="text" class="form-control" readonly="">
+                                    <input type="text" class="form-control" name="nama" value="{{ $nasabah->fname }}"
+                                        readonly>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Nomor Telepon</label>
-                                    <input type="text" class="form-control" readonly="">
+                                    <input type="text" class="form-control" name="nohp" value="{{ $nasabah->nohp }}">
                                 </div>
-
                             </div>
 
                             <div class="box-footer">
-                                <button type="submit" class="btn btn-success" style="width:100%;">
-                                    <i class="fa fa-filter"></i>&nbsp;FILTER
-                                </button>
+                                <a href="{{ route('nasabah.index') }}" class="btn btn-danger">RESET</a>
+                                <button type="submit" class="btn btn-success pull-right">UPDATE</button>
                             </div>
                         </form>
                     </div>

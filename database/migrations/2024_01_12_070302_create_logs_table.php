@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nocif');
             $table->string('noacc');
             $table->string('nama_nasabah');
+            $table->string('nohp');
             $table->string('update_user');
             $table->timestamps();
         });

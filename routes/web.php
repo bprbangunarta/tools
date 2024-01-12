@@ -39,5 +39,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::controller(NasabahController::class)->group(function () {
         Route::get('/nasabah', 'index')->name('nasabah.index');
+        Route::post('/nasabah/search', 'search')->name('nasabah.search');
+        Route::put('/nasabah/update', 'update')->name('nasabah.update');
     });
 });

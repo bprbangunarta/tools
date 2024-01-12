@@ -49,7 +49,7 @@
                 </a>
             </li>
 
-            <li class="{{ request()->is('nasabah') ? 'active' : '' }}">
+            <li class="{{ request()->is('nasabah', 'nasabah/search') ? 'active' : '' }}">
                 <a href="{{ route('nasabah.index') }}">
                     <i class="fa fa-phone"></i>
                     Update Nomor Telepon

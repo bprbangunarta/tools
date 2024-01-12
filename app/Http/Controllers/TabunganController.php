@@ -57,6 +57,7 @@ class TabunganController extends Controller
             'nocif'        => request()->input('nocif'),
             'noacc'        => request()->input('noacc'),
             'nama_nasabah' => request()->input('nama'),
+            'nohp'         => '',
             'update_user'  => Auth::user()->name,
             'created_at'   => now(),
             'updated_at'   => now(),

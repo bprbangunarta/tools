@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="box-footer">
-                                <a href="{{ route('deposito.index') }}" class="btn btn-danger">RESET</a>
+                                <a href="{{ route('tabungan.index') }}" class="btn btn-danger">RESET</a>
                                 <button type="submit" class="btn btn-success pull-right">UPDATE</button>
                             </div>
                         </form>

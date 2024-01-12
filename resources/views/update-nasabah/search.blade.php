@@ -20,7 +20,7 @@
                                 <div class="form-group">
                                     <label>Nomor CIF</label>
                                     <input type="number" class="form-control" name="nocif" minlength="16"
-                                        value="{{ $nasabah->nocif }}" required>
+                                        value="{{ $nasabah->nocif }}" readonly>
                                 </div>
 
                                 <div class="form-group">
@@ -50,7 +50,7 @@
                             <h3 class="box-title">HISTORY UPDATE</h3>
 
                             <div class="box-tools">
-                                <form action="#" method="GET">
+                                <form action="{{ route('nasabah.index') }}" method="GET">
                                     <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                                         <input type="text" class="form-control text-uppercase pull-right"
                                             style="width: 150px;" name="keyword" id="keyword"

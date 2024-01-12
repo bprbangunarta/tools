@@ -12,11 +12,21 @@ class TabunganController extends Controller
 {
     public function index()
     {
+        $keyword = request()->input('keyword');
         $user = Auth::user()->name;
-        $logs = Log::where('log', 'Update QQ Tabungan')
-            ->where('update_user', $user)
-            ->orderBy('created_at', 'DESC')
-            ->paginate(10);
+
+        if ($keyword) {
+            $logs = Log::where('log', 'Update QQ Tabungan')
+                ->where('update_user', $user)
+                ->where('nama_nasabah', 'like', '%' . $keyword . '%')
+                ->orderBy('created_at', 'DESC')
+                ->paginate(10);
+        } else {
+            $logs = Log::where('log', 'Update QQ Tabungan')
+                ->where('update_user', $user)
+                ->orderBy('created_at', 'DESC')
+                ->paginate(10);
+        }
 
         return view('update-tabungan.index', [
             'data' => $logs,

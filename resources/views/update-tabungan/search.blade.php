@@ -20,7 +20,7 @@
                                 <div class="form-group">
                                     <label>No. Tabungan</label>
                                     <input type="number" class="form-control" name="noacc" minlength="16"
-                                        value="{{ $tabungan->noacc }}" placeholder="201XXXXXX" required>
+                                        value="{{ $tabungan->noacc }}" readonly>
                                 </div>
 
                                 <div class="form-group">
@@ -51,7 +51,7 @@
                             <h3 class="box-title">HISTORY UPDATE</h3>
 
                             <div class="box-tools">
-                                <form action="#" method="GET">
+                                <form action="{{ route('tabungan.index') }}" method="GET">
                                     <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                                         <input type="text" class="form-control text-uppercase pull-right"
                                             style="width: 150px;" name="keyword" id="keyword"

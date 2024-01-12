@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DepositoController;
+use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\TabunganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +20,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::controller(DepositoController::class)->group(function () {
+        Route::get('/deposito', 'index')->name('deposito.index');
+    });
+
+    Route::controller(TabunganController::class)->group(function () {
+        Route::get('/tabungan', 'index')->name('tabungan.index');
+    });
+
+    Route::controller(NasabahController::class)->group(function () {
+        Route::get('/nasabah', 'index')->name('nasabah.index');
+    });
 });

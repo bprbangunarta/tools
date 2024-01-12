@@ -26,7 +26,7 @@
     @include('layouts.header')
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
         @include('layouts.topbar')
         @include('layouts.sidebar')

@@ -35,22 +35,22 @@
                 </a>
             </li>
 
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">
+            <li class="{{ request()->is('deposito') ? 'active' : '' }}">
+                <a href="{{ route('deposito.index') }}">
                     <i class="fa fa-money"></i>
                     Update QQ Deposito
                 </a>
             </li>
 
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">
+            <li class="{{ request()->is('tabungan') ? 'active' : '' }}">
+                <a href="{{ route('tabungan.index') }}">
                     <i class="fa fa-credit-card"></i>
                     Update QQ Tabungan
                 </a>
             </li>
 
-            <li class="{{ request()->is('dashboard') ? 'active' : '' }}">
-                <a href="{{ route('dashboard') }}">
+            <li class="{{ request()->is('nasabah') ? 'active' : '' }}">
+                <a href="{{ route('nasabah.index') }}">
                     <i class="fa fa-phone"></i>
                     Update Nomor Telepon
                 </a>

@@ -1,45 +1,57 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@yield('title')</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    {{-- Meta Description --}}
+    <meta name="description"
+        content="Sistem pemberian kredit adalah mekanisme untuk menilai potensi risiko dan kemampuan seseorang untuk membayar kembali pinjaman">
+    <meta name="keywords" content="BPR Bangunarta, bprbangunarta" />
+    <meta content='Sistem Pemberian Kredit' property='og:title' />
+    <meta content='https://sipebri.bprbangunarta.co.id/' property='og:url' />
+    <meta content='Sistem Pemberian Kredit' property='og:site_name' />
+    <meta content='website' property='og:type' />
+    <meta
+        content='Sistem pemberian kredit adalah mekanisme untuk menilai potensi risiko dan kemampuan seseorang untuk membayar kembali pinjaman'
+        property='og:description' />
+    <meta content='Sistem Pemberian Kredit' property='og:image:alt' />
+    <meta content='https://sipebri.bprbangunarta.co.id/assets/img/banner.png' property='og:image' />
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @include('layouts.header')
+</head>
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        @include('layouts.topbar')
+        @include('layouts.sidebar')
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        @yield('content')
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+        @include('layouts.version')
+    </div>
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+    @include('layouts.footer')
+    @stack('myscript')
 
-        @stack('modals')
+    @if (session('session_expired'))
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Sesi berakhir, silahkan login kembali",
+                    confirmButtonColor: "#DD4B39",
+                });
+            });
+        </script>
+    @endif
 
-        @livewireScripts
-    </body>
+</body>
+
 </html>

@@ -29,7 +29,7 @@
 <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
         @include('layouts.topbar')
-        @include('layouts.sidebar')
+        <x-sidebar></x-sidebar>
 
         @yield('content')
 

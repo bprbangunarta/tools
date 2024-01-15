@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepositoController;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\TabunganController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -23,7 +24,9 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::middleware(['time.access'])->group(function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    });
 
     Route::controller(DepositoController::class)->group(function () {
         Route::get('/deposito', 'index')->name('deposito.index');
@@ -41,5 +44,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::get('/nasabah', 'index')->name('nasabah.index');
         Route::post('/nasabah/search', 'search')->name('nasabah.search');
         Route::put('/nasabah/update', 'update')->name('nasabah.update');
+    });
+
+    Route::prefix('transaksi')->group(function () {
+        Route::controller(TransaksiController::class)->group(function () {
+            Route::get('/sma/dana', 'sma_dana')->name('smadana.index');
+        });
     });
 });

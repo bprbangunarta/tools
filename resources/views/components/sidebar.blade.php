@@ -36,52 +36,70 @@
             </li>
 
             <li
-                class="treeview {{ request()->is('transaksi/sma', 'pembukaan/deposito', 'pembukaan/tabungan') ? 'active menu-open' : '' }}">
+                class="treeview {{ request()->is('transaksi/tabungan', 'transaksi/sma', 'pembukaan/deposito', 'pembukaan/tabungan') ? 'active menu-open' : '' }}">
                 <a href="#">
                     <i class="fa fa-tv"></i>
                     Monitoring Transaksi
-                    <span class="pull-right-container">
-                        <span class="label label-danger pull-right">{{ $total }}</span>
-                    </span>
+                    @if ($total == 0)
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    @else
+                        <span class="pull-right-container">
+                            <span class="label label-danger pull-right">{{ $total }}</span>
+                        </span>
+                    @endif
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{ request()->is('') ? 'active' : '' }}">
+                    <li class="{{ request()->is('transaksi/tabungan') ? 'active' : '' }}">
                         <a href="{{ route('trx-tabungan.index') }}">
-                            Transaksi Tabungan
-
-                            <span class="pull-right-container">
-                                <span class="label label-danger pull-right">{{ $trx_tabungan }}</span>
-                            </span>
+                            @if ($trx_tabungan == 0)
+                                <i class="fa fa-circle-o"></i>
+                                Transaksi Tabungan
+                            @else
+                                <span class="pull-right-container">
+                                    <span class="label label-danger pull-right">{{ $trx_tabungan }}</span>
+                                </span>
+                            @endif
                         </a>
                     </li>
 
                     <li class="{{ request()->is('transaksi/sma') ? 'active' : '' }}">
                         <a href="{{ route('trx-sama.index') }}">
-                            Transaksi SMA Dana
-
-                            <span class="pull-right-container">
-                                <span class="label label-danger pull-right">{{ $trx_sma }}</span>
-                            </span>
+                            @if ($trx_sma == 0)
+                                <i class="fa fa-circle-o"></i>
+                                Transaksi SMA Dana
+                            @else
+                                <span class="pull-right-container">
+                                    <span class="label label-danger pull-right">{{ $trx_sma }}</span>
+                                </span>
+                            @endif
                         </a>
                     </li>
 
                     <li class="{{ request()->is('pembukaan/deposito') ? 'active' : '' }}">
-                        <a href="{{ route('deposito.index') }}">
-                            Pembukaan Deposito
-
-                            <span class="pull-right-container">
-                                <span class="label label-danger pull-right">{{ $deposito }}</span>
-                            </span>
+                        <a href="{{ route('pembukaan-deposito.index') }}">
+                            @if ($deposito == 0)
+                                <i class="fa fa-circle-o"></i>
+                                Pembukaan Deposito
+                            @else
+                                <span class="pull-right-container">
+                                    <span class="label label-danger pull-right">{{ $deposito }}</span>
+                                </span>
+                            @endif
                         </a>
                     </li>
 
                     <li class="{{ request()->is('pembukaan/tabungan') ? 'active' : '' }}">
-                        <a href="{{ route('tabungan.index') }}">
-                            Pembukaan Tabungan
-
-                            <span class="pull-right-container">
-                                <span class="label label-danger pull-right">{{ $tabungan }}</span>
-                            </span>
+                        <a href="{{ route('pembukaan-tabungan.index') }}">
+                            @if ($tabungan == 0)
+                                <i class="fa fa-circle-o"></i>
+                                Pembukaan Tabungan
+                            @else
+                                <span class="pull-right-container">
+                                    <span class="label label-danger pull-right">{{ $tabungan }}</span>
+                                </span>
+                            @endif
                         </a>
                     </li>
                 </ul>

@@ -10,7 +10,7 @@
                     <div class="box box-success">
                         <div class="box-header with-border" style="border-bottom: 1px solid #00A65A;">
                             <i class="fa fa-file-text-o"></i>
-                            <h3 class="box-title">HISTORY TRANSAKSI [{{ $cma_tabungan_total }} DATA]</h3>
+                            <h3 class="box-title">HISTORY TRANSAKSI [{{ $trx_sma_total }} DATA]</h3>
 
                             <div class="box-tools">
                                 <form action="#" method="GET">
@@ -42,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($cma_tabungan as $index => $item)
+                                    @forelse ($trx_sma as $index => $item)
                                         <tr class="danger">
                                             <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $item->noacc }}</td>

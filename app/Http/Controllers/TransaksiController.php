@@ -15,8 +15,10 @@ class TransaksiController extends Controller
         $now = Carbon::now();
         $date = $now->format('Ymd');
 
+        $trx_tabungan = 1;
+
         return view('transaksi.trx-tabungan', [
-            // '' => ,
+            'trx_tabungan' => $trx_tabungan,
         ]);
     }
 
@@ -25,19 +27,19 @@ class TransaksiController extends Controller
         $now = Carbon::now();
         $date = $now->format('Ymd');
 
-        $cma_tabungan = CmaTabunganTemp::where('tglproses', $date)
+        $trx_sma = CmaTabunganTemp::where('tglproses', $date)
             ->where('stsrec', 'N')
             ->orderBy('inptgljam')
             ->get();
 
-        $cma_tabungan_total = CmaTabunganTemp::where('tglproses', $date)
+        $trx_sma_total = CmaTabunganTemp::where('tglproses', $date)
             ->where('stsrec', 'N')
             ->orderBy('inptgljam')
             ->count();
 
         return view('transaksi.trx-sma', [
-            'cma_tabungan'        => $cma_tabungan,
-            'cma_tabungan_total'  => $cma_tabungan_total,
+            'trx_sma'        => $trx_sma,
+            'trx_sma_total'  => $trx_sma_total,
         ]);
     }
 

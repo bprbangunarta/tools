@@ -33,7 +33,7 @@ class Sidebar extends Component
             ->orderBy('inptgljam')
             ->count();
 
-        $trx_tabungan = 1;
+        $trx_tabungan = 0;
 
         $deposito = Deposito::where('tglbuka', $date)
             ->where('stsrec', 'N')

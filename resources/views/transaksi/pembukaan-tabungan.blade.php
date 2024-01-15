@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Transaksi SMA Dana')
+@section('title', 'Pembukaan Tabungan')
 
 @section('content')
     <div class="content-wrapper" style="min-height: 912px;">

@@ -24,9 +24,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::middleware(['time.access'])->group(function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    });
+    // Route::middleware(['time.access'])->group(function () {
+    // });
+
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::controller(DepositoController::class)->group(function () {
         Route::get('/deposito', 'index')->name('deposito.index');

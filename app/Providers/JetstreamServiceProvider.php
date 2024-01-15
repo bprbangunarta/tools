@@ -9,7 +9,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\ValidationException;
+
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -35,16 +36,18 @@ class JetstreamServiceProvider extends ServiceProvider
                 ->orWhere('username', $request->auth)
                 ->first();
 
-            if ($user && Hash::check($request->password, $user->password)) {
-                if ($user->is_active == 1) {
-                    return $user;
-                } else {
-                    Session::flash('error', 'Akun dinonaktifkan. Akses tidak diizinkan.');
-                }
+            $waktu = date('H');
+            if ($user && $user->is_active == 1 && Hash::check($request->password, $user->password) && $waktu < 17 && date('N') != 6 && date('N') != 7) {
+                return $user;
+            } elseif ($user && $user->is_active != 1) {
+                throw ValidationException::withMessages([
+                    'auth' => ['Akun dinonaktifkan.'],
+                ]);
+            } else {
+                throw ValidationException::withMessages([
+                    'auth' => ['Akses ditolak. Silakan coba lagi pada hari kerja.'],
+                ]);
             }
-
-            // Jika autentikasi gagal, kembalikan null
-            return null;
         });
     }
 

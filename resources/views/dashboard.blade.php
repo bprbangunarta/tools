@@ -9,7 +9,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-primary">
                         <div class="inner">
-                            <h3>1</h3>
+                            <h3>{{ $deposito }}</h3>
                             <p>Update QQ Deposito</p>
                         </div>
                         <div class="icon">
@@ -23,7 +23,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>1</h3>
+                            <h3>{{ $tabungan }}</h3>
                             <p>Update QQ Tabungan</p>
                         </div>
                         <div class="icon">
@@ -37,7 +37,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-purple">
                         <div class="inner">
-                            <h3>1</h3>
+                            <h3>{{ $nasabah }}</h3>
                             <p>Update Nomor HP</p>
                         </div>
                         <div class="icon">
@@ -51,7 +51,7 @@
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>1</h3>
+                            <h3>{{ $total }}</h3>
                             <p>Total Update</p>
                         </div>
                         <div class="icon">

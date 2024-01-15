@@ -16,13 +16,13 @@ class NasabahController extends Controller
         $user = Auth::user()->name;
 
         if ($keyword) {
-            $logs = Log::where('log', 'Update QQ Nasabah')
+            $logs = Log::where('log', 'Update Data Nasabah')
                 ->where('update_user', $user)
                 ->where('nama_nasabah', 'like', '%' . $keyword . '%')
                 ->orderBy('created_at', 'DESC')
                 ->paginate(10);
         } else {
-            $logs = Log::where('log', 'Update QQ Nasabah')
+            $logs = Log::where('log', 'Update Data Nasabah')
                 ->where('update_user', $user)
                 ->orderBy('created_at', 'DESC')
                 ->paginate(10);
@@ -36,7 +36,7 @@ class NasabahController extends Controller
     public function search(Request $request)
     {
         $user = Auth::user()->name;
-        $logs = Log::where('log', 'Update QQ Nasabah')
+        $logs = Log::where('log', 'Update Data Nasabah')
             ->where('update_user', $user)
             ->orderBy('created_at', 'DESC')
             ->paginate(10);
@@ -63,7 +63,7 @@ class NasabahController extends Controller
         $nocif  = $request->input('nocif');
 
         $data = [
-            'log'          => 'Update QQ Nasabah',
+            'log'          => 'Update Data Nasabah',
             'nocif'        => request()->input('nocif'),
             'noacc'        => '',
             'nama_nasabah' => request()->input('nama'),

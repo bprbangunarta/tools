@@ -10,10 +10,10 @@
                     <div class="box box-success">
                         <div class="box-header with-border" style="border-bottom: 1px solid #00A65A;">
                             <i class="fa fa-file-text-o"></i>
-                            <h3 class="box-title">HISTORY TRANSAKSI [{{ $cma_tabungan_total }} DATA]</h3>
+                            <h3 class="box-title">HISTORY PEMBUKAAN [{{ $deposito_total }} DATA]</h3>
 
                             <div class="box-tools">
-                                <form action="{{ route('smadana.index') }}" method="GET">
+                                <form action="#" method="GET">
                                     <div class="input-group input-group-sm hidden-xs" style="width: 150px;">
                                         <input type="text" class="form-control text-uppercase pull-right"
                                             style="width: 150px;" name="keyword" id="keyword"
@@ -42,7 +42,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($cma_tabungan as $index => $item)
+                                    @forelse ($deposito as $index => $item)
                                         <tr class="danger">
                                             <td class="text-center">{{ $index + 1 }}</td>
                                             <td>{{ $item->noacc }}</td>
@@ -62,18 +62,6 @@
                                 </tbody>
                             </table>
                         </div>
-
-                        {{-- <div class="box-footer clearfix">
-                            <div class="pull-left hidden-xs">
-                                <button class="btn btn-default btn-sm">
-                                    Showing {{ $cma_tabungan->firstItem() }} to {{ $cma_tabungan->lastItem() }} of
-                                    {{ $cma_tabungan->total() }}
-                                    entries
-                                </button>
-                            </div>
-
-                            {{ $cma_tabungan->withQueryString()->onEachSide(0)->links('vendor.pagination.adminlte') }}
-                        </div> --}}
 
                     </div>
                 </div>

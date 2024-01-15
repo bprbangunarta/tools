@@ -47,9 +47,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::put('/nasabah/update', 'update')->name('nasabah.update');
     });
 
-    Route::prefix('transaksi')->group(function () {
-        Route::controller(TransaksiController::class)->group(function () {
-            Route::get('/sma/dana', 'sma_dana')->name('smadana.index');
-        });
+    Route::controller(TransaksiController::class)->group(function () {
+        Route::get('transaksi/tabungan', 'trx_tabungan')->name('trx-tabungan.index');
+        Route::get('transaksi/sma', 'trx_sma')->name('trx-sama.index');
+        Route::get('pembukaan/deposito', 'pembukaan_deposito')->name('deposito.index');
+        Route::get('pembukaan/tabungan', 'pembukaan_tabungan')->name('tabungan.index');
     });
 });

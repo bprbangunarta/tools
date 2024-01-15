@@ -3,6 +3,8 @@
 namespace App\View\Components;
 
 use App\Models\CmaTabunganTemp;
+use App\Models\Deposito;
+use App\Models\TabunganB;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -26,20 +28,31 @@ class Sidebar extends Component
         $now = Carbon::now();
         $date = $now->format('Ymd');
 
-        $cma_tabungan_total = CmaTabunganTemp::where('tglproses', $date)
+        $trx_sma = CmaTabunganTemp::where('tglproses', $date)
             ->where('stsrec', 'N')
             ->orderBy('inptgljam')
             ->count();
 
-        $tabungan = 1;
-        $deposito = 1;
-        $total = $cma_tabungan_total + $tabungan + $deposito;
+        $trx_tabungan = 1;
+
+        $deposito = Deposito::where('tglbuka', $date)
+            ->where('stsrec', 'N')
+            ->orderBy('inptgljam')
+            ->count();
+
+        $tabungan = TabunganB::where('tglbuka', $date)
+            ->where('stsrec', 'N')
+            ->orderBy('inptgljam')
+            ->count();
+
+        $total = $trx_sma + $trx_tabungan + $deposito + $tabungan;
 
         return view('components.sidebar', [
-            'cma_tabungan_total'  => $cma_tabungan_total,
-            'tabungan'  => $tabungan,
-            'deposito'  => $deposito,
-            'total'     => $total,
+            'trx_sma'      => $trx_sma,
+            'trx_tabungan'  => $trx_tabungan,
+            'deposito'      => $deposito,
+            'tabungan'      => $tabungan,
+            'total'         => $total,
         ]);
     }
 }

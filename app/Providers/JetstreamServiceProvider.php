@@ -37,7 +37,7 @@ class JetstreamServiceProvider extends ServiceProvider
                 ->first();
 
             $waktu = date('H');
-            if ($user && $user->is_active == 1 && Hash::check($request->password, $user->password) && $waktu < 17 && date('N') != 6 && date('N') != 7) {
+            if ($user && $user->is_active == 1 && Hash::check($request->password, $user->password) && $waktu < 24 && date('N') != 6 && date('N') != 7) {
                 return $user;
             } elseif ($user && $user->is_active != 1) {
                 throw ValidationException::withMessages([

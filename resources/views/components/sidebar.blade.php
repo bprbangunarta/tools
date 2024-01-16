@@ -15,7 +15,7 @@
             <div class="input-group">
                 <input type="text" class="form-control text-uppercase pull-right"
                     style="width: 180px;font-size:11.4px;" name="keyword" id="keyword"
-                    value="{{ request('keyword') }}" placeholder="Search">
+                    value="{{ request('keyword') }}" placeholder="Search" disabled>
 
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-flat">

@@ -18,7 +18,8 @@
                             <div class="box-body">
                                 <div class="form-group">
                                     <label>Nomor CIF</label>
-                                    <input type="number" class="form-control" name="nocif" required>
+                                    <input type="number" class="form-control" name="nocif" placeholder="001XXXXXXXX"
+                                        required>
                                 </div>
 
                                 <div class="form-group">

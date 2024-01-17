@@ -10,17 +10,11 @@
     <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
 
     {{-- Meta Description --}}
-    <meta name="description"
-        content="Sistem pemberian kredit adalah mekanisme untuk menilai potensi risiko dan kemampuan seseorang untuk membayar kembali pinjaman">
+    <meta name="description" content="BPR Bangunarta">
     <meta name="keywords" content="BPR Bangunarta, bprbangunarta" />
     <meta content='Sistem Pemberian Kredit' property='og:title' />
-    <meta content='https://sipebri.bprbangunarta.co.id/' property='og:url' />
-    <meta content='Sistem Pemberian Kredit' property='og:site_name' />
     <meta content='website' property='og:type' />
-    <meta
-        content='Sistem pemberian kredit adalah mekanisme untuk menilai potensi risiko dan kemampuan seseorang untuk membayar kembali pinjaman'
-        property='og:description' />
-    <meta content='Sistem Pemberian Kredit' property='og:image:alt' />
+    <meta content='BPR Bangunarta' property='og:description' />
     <meta content='https://sipebri.bprbangunarta.co.id/assets/img/banner.png' property='og:image' />
 
     @include('layouts.header')

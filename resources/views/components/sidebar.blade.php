@@ -57,6 +57,8 @@
                                 <i class="fa fa-circle-o"></i>
                                 Transaksi Tabungan
                             @else
+                                <i class="fa fa-circle-o"></i>
+                                Transaksi Tabungan
                                 <span class="pull-right-container">
                                     <span class="label label-danger pull-right">{{ $trx_tabungan }}</span>
                                 </span>
@@ -70,6 +72,8 @@
                                 <i class="fa fa-circle-o"></i>
                                 Transaksi SMA Dana
                             @else
+                                <i class="fa fa-circle-o"></i>
+                                Transaksi SMA Dana
                                 <span class="pull-right-container">
                                     <span class="label label-danger pull-right">{{ $trx_sma }}</span>
                                 </span>
@@ -83,6 +87,8 @@
                                 <i class="fa fa-circle-o"></i>
                                 Pembukaan Deposito
                             @else
+                                <i class="fa fa-circle-o"></i>
+                                Pembukaan Deposito
                                 <span class="pull-right-container">
                                     <span class="label label-danger pull-right">{{ $deposito }}</span>
                                 </span>
@@ -96,6 +102,8 @@
                                 <i class="fa fa-circle-o"></i>
                                 Pembukaan Tabungan
                             @else
+                                <i class="fa fa-circle-o"></i>
+                                Pembukaan Tabungan
                                 <span class="pull-right-container">
                                     <span class="label label-danger pull-right">{{ $tabungan }}</span>
                                 </span>

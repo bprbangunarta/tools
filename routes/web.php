@@ -41,6 +41,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         Route::put('/tabungan/update', 'update')->name('tabungan.update');
     });
 
+
+    Route::controller(TabunganController::class)->group(function () {
+        Route::get('/cetak/tabungan', 'cetak_index')->name('tabungan.cetak.index');
+        Route::post('/cetak/tabungan/search', 'cetak_search')->name('tabungan.cetak.search');
+        Route::put('/cetak/tabungan/update', 'cetak_update')->name('tabungan.cetak.update');
+    });
+
     Route::controller(NasabahController::class)->group(function () {
         Route::get('/nasabah', 'index')->name('nasabah.index');
         Route::post('/nasabah/search', 'search')->name('nasabah.search');

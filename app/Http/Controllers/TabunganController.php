@@ -150,8 +150,8 @@ class TabunganController extends Controller
             'nama' => 'required|string',
         ]);
 
-        DB::connection('sqlsrv')->table('m_tabunganb')->where('noacc', $noacc)->update(['kodeprd' => $request->input('kodeprd')]);
-        DB::connection('sqlsrv')->table('m_tabunganc')->where('noacc', $noacc)->update(['kodeprd' => $request->input('kodeprd')]);
+        DB::connection('sqlsrv')->table('m_tabunganb')->where('noacc', $noacc)->update(['kodebuku' => $request->input('kodebuku')]);
+        DB::connection('sqlsrv')->table('m_tabunganc')->where('noacc', $noacc)->update(['kodebuku' => $request->input('kodebuku')]);
         Log::insert($data);
         return redirect('/cetak/tabungan')->with('success', 'Fix Cetak Tabungan successfully');
     }

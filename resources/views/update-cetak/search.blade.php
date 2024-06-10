@@ -34,8 +34,8 @@
 
                             <div class="form-group">
                                 <label>Cetak Tabungan</label>
-                                <select class="form-control" name="kodeprd" required>
-                                    <option value="{{ $tabungan->kodeprd == '00' ? '01' : '01' }}">{{ $tabungan->kodeprd == '00' ? 'FIX CETAK TABUNGAN' : 'TABUNGAN SUDAH BENAR' }}</option>
+                                <select class="form-control" name="kodebuku" required>
+                                    <option value="{{ $tabungan->kodebuku == '00' ? '01' : '01' }}">{{ $tabungan->kodebuku == '00' ? 'FIX CETAK TABUNGAN' : 'TABUNGAN SUDAH BENAR' }}</option>
                                 </select>
                             </div>
                         </div>
